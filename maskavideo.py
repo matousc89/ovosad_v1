@@ -1,6 +1,6 @@
 import cv2
 import numpy as np
-mask_img = cv2.imread('videa/testmask1.jpg',cv2.COLOR_BGR2GRAY)
+mask_img = cv2.imread('videa/testmask1.jpg',cv2.COLOR_BGR2RGB)
 w = mask_img.shape[1]
 h = mask_img.shape[0]
 cap = cv2.VideoCapture("Videa/video11.avi")
@@ -20,9 +20,7 @@ while True:
         crop = 300;
         for (x, y, w, h) in rectangles:
             cv2.rectangle(crop_vid, (x, y), (x + w, y + h), (0, 255, 255), 2)
-    cv2.imshow("Video", img)
-    # nebo
-    # cv2.imshow("Video", crop_vid)
+    cv2.imshow("Video", crop_vid)
 
     if cv2.waitKey(1) & 0xFF ==ord('q'):
         break
