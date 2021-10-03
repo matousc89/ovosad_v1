@@ -1,6 +1,9 @@
 import cv2
 import numpy as np
-mask_img = cv2.imread('videa/testmask1.jpg',cv2.COLOR_BGR2RGB)
+# mask_img = cv2.imread('videa/testmask1.jpg',cv2.COLOR_BGR2RGB)
+# THRESHOLD = .5
+mask_img = cv2.imread('videa/testmask_half.jpg', cv2.IMREAD_UNCHANGED)
+THRESHOLD = .7
 w = mask_img.shape[1]
 h = mask_img.shape[0]
 cap = cv2.VideoCapture("Videa/video11.avi")
@@ -11,8 +14,8 @@ while True:
     blur = cv2.GaussianBlur(img, (3, 3), cv2.BORDER_DEFAULT)
     result = cv2.matchTemplate(crop_vid, mask_img, cv2.TM_CCOEFF_NORMED)
     if len(result):
-        threshold = .5
-        yloc, xloc = np.where(result >= threshold)
+
+        yloc, xloc = np.where(result >= THRESHOLD)
         rectangles = []
         for (x, y) in zip(xloc, yloc):
             rectangles.append([int(x), int(y), int(w), int(h)])
