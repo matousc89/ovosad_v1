@@ -2,8 +2,10 @@ import cv2
 import numpy as np
 # mask_img = cv2.imread('videa/testmask1.jpg',cv2.COLOR_BGR2RGB)
 # THRESHOLD = .5
-mask_img = cv2.imread('videa/testmask_half.jpg', cv2.IMREAD_UNCHANGED)
-THRESHOLD = .7
+# mask_img = cv2.imread('videa/testmask_half.jpg', cv2.IMREAD_UNCHANGED)
+# THRESHOLD = .7
+mask_img = cv2.imread('videa/testmask_paint.jpg', cv2.IMREAD_UNCHANGED)
+THRESHOLD = .6
 w = mask_img.shape[1]
 h = mask_img.shape[0]
 cap = cv2.VideoCapture("Videa/video11.avi")
